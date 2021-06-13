@@ -26,11 +26,11 @@ public class AbstractEntity {
     @Column(name = "LAST_MODIFIED_BY")
     private String lastModifiedBy;
 
-    @Column(name = "CREATED_AT")
+    @Column(name = "CREATED_AT",columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
-    @Column(name = "LAST_MODIFIED_AT")
+    @Column(name = "LAST_MODIFIED_AT",columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastModifiedAt;
 
