@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/employees")
@@ -74,7 +73,7 @@ public class EmployeeController {
     Change Status
      */
     @PostMapping("/{id}/change-status/{status}")
-    public ResponseEntity<BasicResponse> addEmployeeContract(@PathVariable("id") Long employeeId , @PathVariable("status") States status){
+    public ResponseEntity<BasicResponse> changeStatus(@PathVariable("id") Long employeeId , @PathVariable("status") States status){
         var contractEntity =  employeeService.changeStatus(employeeId,status);
         var basicResponse = new BasicResponse(contractEntity,null,HttpStatus.OK.value());
         return ResponseEntity.status(HttpStatus.OK).body(basicResponse);
