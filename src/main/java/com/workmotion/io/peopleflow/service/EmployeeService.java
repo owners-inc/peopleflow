@@ -22,12 +22,9 @@ public class EmployeeService {
     private final EmployeeMapper employeeMapper = new EmployeeMapper();
 
     public Employee saveEmployee(Employee employee){
-        if(employee.getCreatedAt()==null){
-            employee.setCreatedAt(new Date());
-        }
-        if(employee.getId()!=null) {
-            employee.setLastModifiedAt(new Date());
-        }
+        if(employee.getCreatedAt()==null) employee.setCreatedAt(new Date());
+        if(employee.getId()!=null) employee.setLastModifiedAt(new Date());
+        if(employee.getHiringStatus() == null) employee.setHiringStatus(States.ADDED);
         return employeeRepository.save(employee);
     }
 
